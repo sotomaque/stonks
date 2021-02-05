@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
-function App() {
+import HomePage from './app/pages/Home';
+import RegisterPage from './app/pages/Register';
+import LoginPage from './app/pages/Login';
+import { AuthContext } from './auth';
+
+const App = () => {
+  const { authState } = React.useContext(AuthContext);
+  const isAuth = authState?.status === 'in';
+
+  // UNPROTECTED ROUTES
+  if (!isAuth) {
+    return (
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => <HomePage />}
+          />
+          <Route
+            path="/login"
+            render={() => <LoginPage />}
+          />
+          <Route
+            path="/register"
+            render={() => <RegisterPage />}
+          />
+          <Redirect to="/" />
+        </Switch>
+      </Router>
+    );
+  }
+
+  // PROTECTED ROUTES
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" render={() => <HomePage />} />
+        <Route path="/login" render={() => <LoginPage />} />
+        <Route
+          path="/register"
+          render={() => <RegisterPage />}
+        />
+        <Redirect to="/" />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;
