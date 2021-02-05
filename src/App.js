@@ -1,59 +1,58 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
-import HomePage from './app/pages/Home';
-import RegisterPage from './app/pages/Register';
-import LoginPage from './app/pages/Login';
-import { AuthContext } from './auth';
+import Navbar from 'components/Navbar';
+import Sidebar from 'components/Sidebar';
+import MobileNavbar from 'components/MobileNavbar';
+import Container from 'styles/Container';
 
-const App = () => {
-  const { authState } = React.useContext(AuthContext);
-  const isAuth = authState?.status === 'in';
+import Home from 'pages/Home';
+import NotFound from 'pages/NotFound';
+import RegisterPage from 'pages/Register';
+import LoginPage from 'pages/Login';
 
-  // UNPROTECTED ROUTES
-  if (!isAuth) {
-    return (
-      <Router>
+import { useLocationChange } from 'hooks/use-location-change';
+import Trending from 'pages/Trending';
+import Snapshot from 'pages/Snapshot';
+
+function App() {
+  const [isSidebarOpen, setSidebarOpen] = React.useState(
+    false,
+  );
+  const toggleSidebar = () =>
+    setSidebarOpen((prev) => !prev);
+
+  // on location change -> close sidebar
+  const handleCloseSidebar = () => setSidebarOpen(false);
+  useLocationChange(handleCloseSidebar);
+
+  return (
+    <>
+      <Navbar toggleSidebar={toggleSidebar} />
+      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <MobileNavbar />
+      <Container>
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => <HomePage />}
-          />
-          <Route
-            path="/login"
-            render={() => <LoginPage />}
-          />
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={LoginPage} />
           <Route
             path="/register"
-            render={() => <RegisterPage />}
+            component={RegisterPage}
           />
-          <Redirect to="/" />
-        </Switch>
-      </Router>
-    );
-  }
+          <Route
+            path="/feed/trending"
+            component={Trending}
+          />
+          <Route
+            path="/feed/snapshot"
+            component={Snapshot}
+          />
 
-  // PROTECTED ROUTES
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/" render={() => <HomePage />} />
-        <Route path="/login" render={() => <LoginPage />} />
-        <Route
-          path="/register"
-          render={() => <RegisterPage />}
-        />
-        <Redirect to="/" />
-      </Switch>
-    </Router>
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </Container>
+    </>
   );
-};
+}
 
 export default App;
