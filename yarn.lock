@@ -10965,7 +10965,7 @@
     "postcss" "^7.0.0"
     "postcss-selector-parser" "^3.0.0"
 
-"subscriptions-transport-ws@^0.9.0":
+"subscriptions-transport-ws@^0.9.0", "subscriptions-transport-ws@^0.9.18":
   "integrity" "sha512-tztzcBTNoEbuErsVQpTN2xUNN/efAZXyCyL5m3x4t6SKrEiTL2N8SaKWBFWM4u56pL79ULif3zjyeq+oV+nOaA=="
   "resolved" "https://registry.npmjs.org/subscriptions-transport-ws/-/subscriptions-transport-ws-0.9.18.tgz"
   "version" "0.9.18"
