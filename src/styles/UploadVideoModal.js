@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 export const openModal = keyframes`
 	from {
@@ -25,7 +25,8 @@ const Wrapper = styled.div`
     margin: 4rem auto;
     background: ${(props) => props.theme.grey};
     border-radius: 3px;
-    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4), 0px 0px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4),
+      0px 0px 4px rgba(0, 0, 0, 0.25);
   }
 
   .modal-header {
@@ -49,7 +50,8 @@ const Wrapper = styled.div`
 
   .video-form {
     border-top: 1px solid ${(props) => props.theme.darkGrey};
-    border-bottom: 1px solid ${(props) => props.theme.darkGrey};
+    border-bottom: 1px solid
+      ${(props) => props.theme.darkGrey};
     padding: 0.5rem 1rem;
   }
 

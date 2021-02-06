@@ -1,7 +1,10 @@
 // @ts-nocheck
-import React from "react";
-import Wrapper from "../styles/ChannelSkeleton";
-import { SkeletonLine, VideoCardSkeleton } from "../styles/Skeleton";
+import React from 'react';
+import Wrapper from '../styles/ChannelSkeleton';
+import {
+  SkeletonLine,
+  VideoCardSkeleton,
+} from '../styles/Skeleton';
 
 function ChannelSkeleton() {
   return (
@@ -10,8 +13,16 @@ function ChannelSkeleton() {
       <div className="channel-avatar-info">
         <SkeletonLine className="avatar" />
         <div className="channel-info">
-          <SkeletonLine width="250px" height="20px" mb="20px" />
-          <SkeletonLine width="200px" height="20px" mb="20px" />
+          <SkeletonLine
+            width="250px"
+            height="20px"
+            mb="20px"
+          />
+          <SkeletonLine
+            width="200px"
+            height="20px"
+            mb="20px"
+          />
         </div>
       </div>
       <div className="videos">

@@ -4,13 +4,10 @@ import { NavLink } from 'react-router-dom';
 
 import Wrapper from '../styles/Sidebar';
 import {
-  HistoryIcon,
   HomeIcon,
   LibIcon,
-  LikeIcon,
   SubIcon,
   TrendingIcon,
-  VidIcon,
 } from './Icons';
 import SidebarAuth from './SidebarAuth';
 

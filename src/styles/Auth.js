@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Button = styled.button`
   letter-spacing: 0.02857em;
@@ -17,7 +17,8 @@ const Button = styled.button`
   line-height: 1.75;
   min-width: 64px;
   box-sizing: border-box;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+  transition: background-color 250ms
+      cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   font-family: Roboto, Helvetica, Arial, sans-serif;

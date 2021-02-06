@@ -74,6 +74,7 @@ const Wrapper = styled.div`
   }
 
   ${(props) =>
+    // @ts-ignore
     props.filledLike &&
     css`
       .like svg {
@@ -82,14 +83,14 @@ const Wrapper = styled.div`
     `}
 
   ${(props) =>
+    // @ts-ignore
     props.filledDislike &&
     css`
       .dislike svg {
         fill: ${(props) => props.theme.blue};
       }
     `}
-
-	@media screen and (max-width: 930px) {
+    @media screen and (max-width: 930px) {
     grid-template-columns: 90%;
     .related-videos {
       display: none;

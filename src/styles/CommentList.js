@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 const Wrapper = styled.div`
   margin: 1rem 0;
 
@@ -16,7 +16,8 @@ const Wrapper = styled.div`
   .add-comment textarea {
     background: inherit;
     border: none;
-    border-bottom: 1px solid ${(props) => props.theme.darkGrey};
+    border-bottom: 1px solid
+      ${(props) => props.theme.darkGrey};
     color: ${(props) => props.theme.primaryColor};
     width: 100%;
     height: 100%;

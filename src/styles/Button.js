@@ -1,5 +1,5 @@
 // @ts-nocheck
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 const Button = styled.button`
   padding: 10px 16px;
